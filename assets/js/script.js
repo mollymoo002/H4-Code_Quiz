@@ -13,11 +13,7 @@ THEN I can save my initials and my score
 */
 
 var headerSelect = document.getElementById("question");
-var buttonSelect = document.getElementById("quizButton");
-var aList = document.getElementById("a");
-var bList = document.getElementById("b");
-var cList = document.getElementById("c");
-var dList = document.getElementById("d");
+var choiceSelect = document.getElementById("choices");
 var subHead = document.getElementById("subHeading");
 var timeEl = document.getElementById("time");
 var secondsLeft = 60;
@@ -26,6 +22,8 @@ headerSelect.textContent = "Coding Quiz Challenge";
 subHead.textContent =
   "Try to answer the following code-related questions within the time limit. Keep in mind the incorrect answers will penalize your score time by ten seconds!";
 
+// variables to manipulate state
+var questionIndex = 0;
 var questions = [
   // "Commonly used data types DO NOT include:",
   // "the condition in an if/else statement is enclosed within ______.:",
@@ -60,7 +58,6 @@ var questions = [
   
 ];
 
-var questionOne = ["String", "booleans", "alerts", "numbers"];
 
 var questionTwo = [
   "quotes",
@@ -80,6 +77,7 @@ var questionFour = ["commas", "curly brackets", "quotes", "parentheses"];
 
 var questionFive = ["JavaScript", "terminal/bash", "for loops", "console.log"];
 
+
 function startQuiz() {
   for (i = 0; i < questions.length; i++) {
     console.log(questions[i]);
@@ -97,6 +95,22 @@ function startQuiz() {
     }, 1000);
   }
   setTime();
+}
+
+function showQuestion() {
+    var renderedQuestion = questions[questionIndex];
+    headerSelect.textContent = renderedQuestion.quote;
+    // emptying the choice element
+    choiceSelect.innerHTML = "";
+    //loop through choices
+    renderedQuestion.choices.forEach(function (choice, index) {
+        var choiceBtn = document.createElement("button")
+        choiceBtn.setAttribute("class", "btn")
+        choiceBtn.setAttribute("value", choice)
+        choiceBtn.textContent = index + 1 + ". " + choice
+
+        choiceSelect.appendChild(choiceBtn)
+    })
 }
 
 function endQuiz() {
