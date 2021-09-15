@@ -83,7 +83,7 @@ function showQuestion() {
 
 function checkAnswer() {
     var result= document.createElement("p");
-    if (choice === answer) {
+    if (choices === answer) {
         result = "Right!"
     } else {
         result = "Wrong!"
