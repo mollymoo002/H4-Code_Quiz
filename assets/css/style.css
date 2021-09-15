@@ -8,7 +8,7 @@ body {
 }
 
 
-h3 {
+h2 {
     text-align: center;
 }
 
@@ -23,5 +23,5 @@ ul li {
 }
 
 .hide {
-    display: hidden;
+    display: none;
 }
