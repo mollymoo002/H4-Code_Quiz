@@ -7,11 +7,21 @@ body {
     color: white;
 }
 
-h1,
+
 h3 {
     text-align: center;
 }
 
+#intro {
+    align-content: center;
+    text-align: center;
+}
+
+
 ul li {
     list-style-type: none;
+}
+
+.hide {
+    display: hidden;
 }
