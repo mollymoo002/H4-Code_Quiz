@@ -12,7 +12,6 @@ WHEN the game is over
 THEN I can save my initials and my score
 */
 
-
 var headerSelect = document.getElementById("question");
 var buttonSelect = document.getElementById("quizButton");
 var aList = document.getElementById("a");
@@ -22,81 +21,88 @@ var dList = document.getElementById("d");
 var subHead = document.getElementById("subHeading");
 var timeEl = document.getElementById("time");
 var secondsLeft = 60;
-buttonSelect.textContent = "Start Quiz"
-headerSelect.textContent = "Coding Quiz Challenge"
-subHead.textContent = "Try to answer the following code-related questions within the time limit. Keep in mind the incorrect answers will penalize your score time by ten seconds!"
+buttonSelect.textContent = "Start Quiz";
+headerSelect.textContent = "Coding Quiz Challenge";
+subHead.textContent =
+  "Try to answer the following code-related questions within the time limit. Keep in mind the incorrect answers will penalize your score time by ten seconds!";
 
 var questions = [
-    "Commonly used data types DO NOT include:",
-    "the condition in an if/else statement is enclosed within ______.:",
-    "Arrays in JavaScript can be used to store _____.:",
-    "string values must be enclosed within ______ when being assigned to variables.:",
-    "A very useful tool used during development and debugging for printing content to the debugger is:"
-]
+  // "Commonly used data types DO NOT include:",
+  // "the condition in an if/else statement is enclosed within ______.:",
+  // "Arrays in JavaScript can be used to store _____.:",
+  // "string values must be enclosed within ______ when being assigned to variables.:",
+  // "A very useful tool used during development and debugging for printing content to the debugger is:"
+  {
+    quote: "Commonly used data types DO NOT include:",
+    choices: ["String", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+  {
+    quote: "Commonly used data types DO NOT include:",
+    choices: ["String", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+  {
+    quote: "Commonly used data types DO NOT include:",
+    choices: ["String", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+  {
+    quote: "Commonly used data types DO NOT include:",
+    choices: ["String", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+  {
+    quote: "Commonly used data types DO NOT include:",
+    choices: ["String", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+  
+];
 
-var questionOne = [
-    "String",
-    "booleans",
-    "alerts",
-    "numbers"
-]
+var questionOne = ["String", "booleans", "alerts", "numbers"];
 
 var questionTwo = [
-    "quotes",
-    "curly brackets",
-    "parentheses",
-    "square brackets"
-]
+  "quotes",
+  "curly brackets",
+  "parentheses",
+  "square brackets",
+];
 
 var questionThree = [
-    "numbers and strings",
-    "other arrays",
-    "booleans",
-    "all of the above"
-]
+  "numbers and strings",
+  "other arrays",
+  "booleans",
+  "all of the above",
+];
 
-var questionFour = [
-    "commas",
-    "curly brackets",
-    "quotes",
-    "parentheses"
-]
+var questionFour = ["commas", "curly brackets", "quotes", "parentheses"];
 
-var questionFive = [
-    "JavaScript",
-    "terminal/bash",
-    "for loops",
-    "console.log"
-]
+var questionFive = ["JavaScript", "terminal/bash", "for loops", "console.log"];
 
 function startQuiz() {
-    for(i=0; i < questions.length; i++) {
-        console.log(questions[i]);
-    }
+  for (i = 0; i < questions.length; i++) {
+    console.log(questions[i]);
+  }
 
+  function setTime() {
+    var timerInterval = setInterval(function () {
+      secondsLeft--;
+      timeEl.textContent = "Time left in quiz: " + secondsLeft;
 
-    function setTime() {
-        var timerInterval = setInterval(function() {
-        secondsLeft--;
-        timeEl.textContent = "Time left in quiz: " + secondsLeft;
-    
-        if(secondsLeft === 0) {
-            clearInterval(timerInterval);
-            sendMessage();
-        }
-    
-        }, 1000);
-    }
-    setTime();
+      if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+        sendMessage();
+      }
+    }, 1000);
+  }
+  setTime();
 }
-
 
 function endQuiz() {
-    headerSelect.textContent = "All Done!"
-    subHead.textContent = "Your final score is: "
+  headerSelect.textContent = "All Done!";
+  subHead.textContent = "Your final score is: ";
 }
-
-
 
 /*
 Coding quiz challenge: Try to answer the following code-related questions within the time limit. Keep in mind the incorrect answers will penalize your score time by ten seconds!
