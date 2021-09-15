@@ -25,57 +25,33 @@ subHead.textContent =
 // variables to manipulate state
 var questionIndex = 0;
 var questions = [
-  // "Commonly used data types DO NOT include:",
-  // "the condition in an if/else statement is enclosed within ______.:",
-  // "Arrays in JavaScript can be used to store _____.:",
-  // "string values must be enclosed within ______ when being assigned to variables.:",
-  // "A very useful tool used during development and debugging for printing content to the debugger is:"
   {
     quote: "Commonly used data types DO NOT include:",
     choices: ["String", "booleans", "alerts", "numbers"],
     answer: "alerts"
   },
   {
-    quote: "Commonly used data types DO NOT include:",
-    choices: ["String", "booleans", "alerts", "numbers"],
-    answer: "alerts"
+    quote: "the condition in an if/else statement is enclosed within ______.:",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets",],
+    answer: "curly brackets"
   },
   {
-    quote: "Commonly used data types DO NOT include:",
-    choices: ["String", "booleans", "alerts", "numbers"],
-    answer: "alerts"
+    quote: "Arrays in JavaScript can be used to store _____.:",
+    choices: ["numbers and strings", "other arrays", "booleans", "all of the above",],
+    answer: "all of the above"
   },
   {
-    quote: "Commonly used data types DO NOT include:",
-    choices: ["String", "booleans", "alerts", "numbers"],
-    answer: "alerts"
+    quote: "string values must be enclosed within ______ when being assigned to variables.:",
+    choices: ["commas", "curly brackets", "quotes", "parentheses"],
+    answer: "parentheses"
   },
   {
-    quote: "Commonly used data types DO NOT include:",
-    choices: ["String", "booleans", "alerts", "numbers"],
-    answer: "alerts"
+    quote: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
+    answer: "console.log"
   },
   
 ];
-
-
-var questionTwo = [
-  "quotes",
-  "curly brackets",
-  "parentheses",
-  "square brackets",
-];
-
-var questionThree = [
-  "numbers and strings",
-  "other arrays",
-  "booleans",
-  "all of the above",
-];
-
-var questionFour = ["commas", "curly brackets", "quotes", "parentheses"];
-
-var questionFive = ["JavaScript", "terminal/bash", "for loops", "console.log"];
 
 
 function startQuiz() {
