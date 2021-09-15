@@ -4,9 +4,12 @@
 
 body {
     background-color: gray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: white;
+}
+
+h1,
+h3 {
+    text-align: center;
 }
 
 ul li {

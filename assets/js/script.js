@@ -14,36 +14,86 @@ THEN I can save my initials and my score
 
 
 var headerSelect = document.getElementById("question");
-var buttonSelect = document.querySelectorAll("button");
+var buttonSelect = document.getElementById("quizButton");
 var aList = document.getElementById("a");
 var bList = document.getElementById("b");
 var cList = document.getElementById("c");
 var dList = document.getElementById("d");
-var fScore = document.getElementById("finalScore");
+var subHead = document.getElementById("subHeading");
 var timeEl = document.getElementById("time");
 var secondsLeft = 60;
+buttonSelect.textContent = "Start Quiz"
+headerSelect.textContent = "Coding Quiz Challenge"
+subHead.textContent = "Try to answer the following code-related questions within the time limit. Keep in mind the incorrect answers will penalize your score time by ten seconds!"
 
-function setTime() {
-    // Sets interval in variable
-    var timerInterval = setInterval(function() {
-      secondsLeft--;
-      timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
-  
-      if(secondsLeft === 0) {
-        // Stops execution of action at set interval
-        clearInterval(timerInterval);
-        // Calls function to create and append image
-        sendMessage();
-      }
-  
-    }, 1000);
-  }
+var questions = [
+    "Commonly used data types DO NOT include:",
+    "the condition in an if/else statement is enclosed within ______.:",
+    "Arrays in JavaScript can be used to store _____.:",
+    "string values must be enclosed within ______ when being assigned to variables.:",
+    "A very useful tool used during development and debugging for printing content to the debugger is:"
+]
 
-setTime();
+var questionOne = [
+    "String",
+    "booleans",
+    "alerts",
+    "numbers"
+]
+
+var questionTwo = [
+    "quotes",
+    "curly brackets",
+    "parentheses",
+    "square brackets"
+]
+
+var questionThree = [
+    "numbers and strings",
+    "other arrays",
+    "booleans",
+    "all of the above"
+]
+
+var questionFour = [
+    "commas",
+    "curly brackets",
+    "quotes",
+    "parentheses"
+]
+
+var questionFive = [
+    "JavaScript",
+    "terminal/bash",
+    "for loops",
+    "console.log"
+]
+
+function startQuiz() {
+    for(i=0; i < questions.length; i++) {
+        console.log(questions[i]);
+    }
+
+
+    function setTime() {
+        var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = "Time left in quiz: " + secondsLeft;
+    
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+            sendMessage();
+        }
+    
+        }, 1000);
+    }
+    setTime();
+}
+
 
 function endQuiz() {
     headerSelect.textContent = "All Done!"
-    fScore.textContent = "Your final score is: "
+    subHead.textContent = "Your final score is: "
 }
 
 
