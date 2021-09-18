@@ -66,6 +66,10 @@ function setTime() {
         clearInterval(timerInterval);
         endQuiz();
       }
+      if (questionIndex === questions.length) {
+        clearInterval(timerInterval);
+        endQuiz();
+      }
     }, 1000);
   }
 
@@ -118,11 +122,11 @@ function saveLocal(event) {
   var userInput = initialResultEl.value;
   console.log(userInput)
   localStorage.setItem("initials", userInput);
+  localStorage.setItem("score", secondsLeft);
 }
 
-function keepInitials() {
-  localStorage.getItem("initials");
-  console.log(localStorage.getItem("initials"));
+function showScores() {
+
 }
 
 startEl.addEventListener("click", showQuestion);
