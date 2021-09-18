@@ -111,6 +111,7 @@ function checkAnswer() {
 function endQuiz() {
   headerSelect.textContent = "All Done!";
   subHead.textContent = "Your final score is: " + secondsLeft;
+  localStorage.setItem("score", secondsLeft);
   initialRequest.textContent = "Please put in your initials to save your score:";
   initialResultEl.classList.remove("hide");
   saveBtnEl.classList.remove("hide");
@@ -122,9 +123,10 @@ function saveLocal(event) {
   var userInput = initialResultEl.value;
   console.log(userInput)
   localStorage.setItem("initials", userInput);
-  // localStorage.setItem("score", secondsLeft);
+  if (localStorage.getItem("initials") !== null) {
+    
+  }
 }
-
 function showScores() {
 
 }
