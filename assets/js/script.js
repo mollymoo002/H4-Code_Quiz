@@ -56,6 +56,8 @@ var questions = [
   
 ];
 
+var scoreArray = [];
+
  
 function setTime() {
     var timerInterval = setInterval(function () {
@@ -123,13 +125,12 @@ function saveLocal(event) {
   var userInput = initialResultEl.value;
   console.log(userInput)
   localStorage.setItem("initials", userInput);
-  if (localStorage.getItem("initials") !== null) {
+  // if (localStorage.getItem("initials") !== null) {
     
-  }
+  // }
 }
-function showScores() {
 
-}
+
 
 startEl.addEventListener("click", showQuestion);
 startEl.addEventListener("click", setTime);
