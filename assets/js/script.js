@@ -18,6 +18,8 @@ var subHead = document.getElementById("subHeading");
 var timeEl = document.getElementById("time");
 var startEl = document.getElementById("startBtn");
 var feedbackEl = document.getElementById("feedback");
+var initialRequest = document.getElementById("initials");
+var initialResultEl = document.getElementById("initialInput");
 
 var secondsLeft = 60;
 
@@ -106,6 +108,8 @@ function checkAnswer() {
 function endQuiz() {
   headerSelect.textContent = "All Done!";
   subHead.textContent = "Your final score is: " + secondsLeft;
+  initialRequest.textContent = "Please put in your initials to save your score:";
+  initialResultEl.classList.remove("hide");
 }
 
 startEl.addEventListener("click", showQuestion);
