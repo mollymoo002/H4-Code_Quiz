@@ -20,6 +20,8 @@ var startEl = document.getElementById("startBtn");
 var feedbackEl = document.getElementById("feedback");
 var initialRequest = document.getElementById("initials");
 var initialResultEl = document.getElementById("initialInput");
+var saveBtnEl = document.getElementById("saveBtn");
+var containerEl = document.getElementById("result");
 
 var secondsLeft = 60;
 
@@ -110,7 +112,21 @@ function endQuiz() {
   subHead.textContent = "Your final score is: " + secondsLeft;
   initialRequest.textContent = "Please put in your initials to save your score:";
   initialResultEl.classList.remove("hide");
+  saveBtnEl.classList.remove("hide");
+}
+
+function saveLocal(event) {
+  event.preventDefault();
+  var saveBtnEl = $(event.target);
+  var userInput = saveBtnEl.siblings("textarea").val();
+  localStorage.setItem("initials", userInput);
+}
+
+function keepInitials() {
+  localStorage.getItem("initials");
+  console.log(localStorage.getItem("initials"));
 }
 
 startEl.addEventListener("click", showQuestion);
 startEl.addEventListener("click", setTime);
+containerEl.addEventListener("click", saveBtnEl, saveLocal);
