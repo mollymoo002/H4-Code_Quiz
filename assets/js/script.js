@@ -17,6 +17,7 @@ var choiceSelect = document.getElementById("choices");
 var subHead = document.getElementById("subHeading");
 var timeEl = document.getElementById("time");
 var startEl = document.getElementById("startBtn");
+var feedbackEl = document.getElementById("feedback");
 
 var secondsLeft = 60;
 
@@ -76,17 +77,24 @@ function showQuestion() {
         choiceBtn.setAttribute("class", "btn");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = index + 1 + ". " + choice;
-
         choiceSelect.appendChild(choiceBtn);
     })
 }
 
 function checkAnswer() {
-    var result= document.createElement("p");
-    if (choices === answer) {
-        result = "Right!"
+    if (this.value !== questions[questionIndex].answer) {
+      secondsLeft -= 5;
+      feedbackEl.textContent = "I'm sorry, that's incorrect";
     } else {
-        result = "Wrong!"
+      feedbackEl.textContent = "That is correct!";
+    }
+    feedbackEl.setAttribute("class","fb");
+    setTimeout(function(){ feedbackEl.setAttribute("class", "fb hide"); }, 1500);
+    questionIndex++;
+    if (questionIndex === questions.length) {
+      endQuiz();
+    } else {
+      showQuestion();
     }
 }
 
