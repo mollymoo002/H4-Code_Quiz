@@ -62,6 +62,9 @@ function setTime() {
         clearInterval(timerInterval);
         endQuiz();
       }
+      if (endQuiz) {
+        clearInterval(timerInterval);
+      }
     }, 1000);
   }
 
