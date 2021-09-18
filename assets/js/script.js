@@ -66,9 +66,6 @@ function setTime() {
         clearInterval(timerInterval);
         endQuiz();
       }
-      if (endQuiz) {
-        clearInterval(timerInterval);
-      }
     }, 1000);
   }
 
@@ -117,8 +114,9 @@ function endQuiz() {
 
 function saveLocal(event) {
   event.preventDefault();
-  var saveBtnEl = $(event.target);
-  var userInput = saveBtnEl.siblings("textarea").val();
+  var saveBtnEl = event.target;
+  var userInput = initialResultEl.value;
+  console.log(userInput)
   localStorage.setItem("initials", userInput);
 }
 
@@ -129,4 +127,4 @@ function keepInitials() {
 
 startEl.addEventListener("click", showQuestion);
 startEl.addEventListener("click", setTime);
-containerEl.addEventListener("click", saveBtnEl, saveLocal);
+containerEl.addEventListener("click", saveLocal);
