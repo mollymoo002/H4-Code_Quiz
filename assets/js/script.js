@@ -58,7 +58,7 @@ function setTime() {
       secondsLeft--;
       timeEl.textContent = "Time left in quiz: " + secondsLeft;
 
-      if (secondsLeft === 0) {
+      if (secondsLeft <= 0) {
         clearInterval(timerInterval);
         endQuiz();
       }
@@ -77,6 +77,7 @@ function showQuestion() {
         choiceBtn.setAttribute("class", "btn");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = index + 1 + ". " + choice;
+        choiceBtn.onclick = checkAnswer;
         choiceSelect.appendChild(choiceBtn);
     })
 }
@@ -101,7 +102,7 @@ function checkAnswer() {
 
 function endQuiz() {
   headerSelect.textContent = "All Done!";
-  subHead.textContent = "Your final score is: ";
+  subHead.textContent = "Your final score is: " + secondsLeft;
 }
 
 startEl.addEventListener("click", showQuestion);
