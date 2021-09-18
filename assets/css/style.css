@@ -29,11 +29,25 @@ ul li {
     display: none;
 }
 
-.btn {
+.btn,
+#saveBtn {
     background: cyan;
     color: black;
     padding: 10px;
     margin: 10px;
     border: none;
     font-family: 'Roboto Mono', monospace;
+}
+
+table {
+    width: 100%;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table, th {
+    font-size: 20px;
 }
