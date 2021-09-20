@@ -12,6 +12,7 @@ GIVEN I am taking a code quiz
 ✅THEN I can save my initials and my score
 */
 
+//global variables
 var headerSelect = document.getElementById("question");
 var choiceSelect = document.getElementById("choices");
 var subHead = document.getElementById("subHeading");
@@ -58,7 +59,7 @@ var questions = [
 
 var scoreArray = [];
 
- 
+//  sets the timer at the top left of the screen and counts down from 60. It stops when the time reaches 0 or all questions are answered
 function setTime() {
     var timerInterval = setInterval(function () {
       secondsLeft--;
@@ -75,6 +76,7 @@ function setTime() {
     }, 1000);
   }
 
+  // Adds the choices to the button we created and displays them to the web page
 function showQuestion() {
     document.getElementById("intro").setAttribute("class", "hide");
     var renderedQuestion = questions[questionIndex];
@@ -92,6 +94,7 @@ function showQuestion() {
     })
 }
 
+// Checks what the user clicked and responds right or wrong depending on the answer and then goes to the next question
 function checkAnswer() {
     if (this.value !== questions[questionIndex].answer) {
       secondsLeft -= 5;
@@ -109,7 +112,7 @@ function checkAnswer() {
     }
 }
 
-
+// this ends the quiz and prints the final score to the console. It also asks the user for their initials to save their score locally
 function endQuiz() {
   headerSelect.textContent = "All Done!";
   subHead.textContent = "Your final score is: " + secondsLeft;
@@ -119,6 +122,7 @@ function endQuiz() {
   saveBtnEl.classList.remove("hide");
 }
 
+// saves the score and initials of the user locally
 function saveLocal(event) {
   event.preventDefault();
   var saveBtnEl = event.target;
@@ -131,7 +135,9 @@ function saveLocal(event) {
 }
 
 
-
+// event listener to start button to run the showQuestion function
 startEl.addEventListener("click", showQuestion);
+// event listener to start button to run the timer
 startEl.addEventListener("click", setTime);
+// event listener to save button to save the intials locally
 containerEl.addEventListener("click", saveLocal);
