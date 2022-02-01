@@ -23,7 +23,7 @@ var questions = [
   {
     quote: "the condition in an if/else statement is enclosed within ______.:",
     choices: ["quotes", "curly brackets", "parentheses", "square brackets",],
-    answer: "curly brackets"
+    answer: "parentheses"
   },
   {
     quote: "Arrays in JavaScript can be used to store _____.:",
@@ -33,7 +33,7 @@ var questions = [
   {
     quote: "string values must be enclosed within ______ when being assigned to variables.:",
     choices: ["commas", "curly brackets", "quotes", "parentheses"],
-    answer: "parentheses"
+    answer: "quotes"
   },
   {
     quote: "A very useful tool used during development and debugging for printing content to the debugger is:",
@@ -72,7 +72,7 @@ function showQuestion() {
     //loop through choices
     renderedQuestion.choices.forEach(function (choice, index) {
         var choiceBtn = document.createElement("button");
-        choiceBtn.setAttribute("class", "btn");
+        choiceBtn.setAttribute("class", "btn-info");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = index + 1 + ". " + choice;
         choiceBtn.onclick = checkAnswer;

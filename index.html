@@ -7,21 +7,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     <title>Code Quiz</title>
 </head>
 <body>
+    <aside id="highScores">
+        <p id="time"></p>
+        <button type="button" class="btn btn-secondary" onclick="document.location='scores.html'">See High Scores</a></button>
+    </aside>
+
     <header>
         <div id="intro">
             <h1>Coding Quiz Challenge</h1>
             <p>Try to answer the following code-related questions within the time limit. Keep in mind the incorrect answers will penalize your score time by ten seconds!</p>
-            <button id="startBtn" type="button" class="btn btn-dark">Start</button>
+            <button id="startBtn" type="button" class="btn btn-info">Start</button>
         </div>
     </header>
-    <aside>
-        <p id="time"></p>
-        <a href="scores.html" id="">See High Scores</a>
-    </aside>
+
     <h2 id="question"></h2>
     <div class="quiz-container">
         <div id="question-container" class="hide"></div>
@@ -34,7 +37,7 @@
         <div id="center">
             <p id="initials"></p>
             <textarea id="initialInput" class="hide"></textarea>
-            <button id="saveBtn" class="hide">
+            <button id="saveBtn" class="hide btn btn-info">
                 <span>Save</span>
             </button>
         </div>
