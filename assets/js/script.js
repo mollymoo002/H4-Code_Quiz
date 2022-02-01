@@ -106,6 +106,7 @@ function endQuiz() {
   initialRequest.textContent = "Please put in your initials to save your score:";
   initialResultEl.classList.remove("hide");
   saveBtnEl.classList.remove("hide");
+  document.getElementById("choices").setAttribute("class", "hide");
 }
 
 // saves the score and initials of the user locally
