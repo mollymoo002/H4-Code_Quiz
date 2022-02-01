@@ -65,6 +65,7 @@ function setTime() {
   // Adds the choices to the button we created and displays them to the web page
 function showQuestion() {
     document.getElementById("intro").setAttribute("class", "hide");
+    document.getElementById("questionTotal").setAttribute("class", "text-center");
     var renderedQuestion = questions[questionIndex];
     headerSelect.textContent = renderedQuestion.quote;
     // emptying the choice element
@@ -107,6 +108,7 @@ function endQuiz() {
   initialResultEl.classList.remove("hide");
   saveBtnEl.classList.remove("hide");
   document.getElementById("choices").setAttribute("class", "hide");
+  document.getElementById("result").setAttribute("class", "text-center");
 }
 
 // saves the score and initials of the user locally
